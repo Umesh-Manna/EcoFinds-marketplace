@@ -79,7 +79,73 @@
             </main>
         </section>
 
-        <script src="script.js"></script>
+        <script>
+            const items = [
+                { img: "images/dining_table.jpg", title: "Dining Table", location: "Delhi", price: 15000 },
+                { img: "images/guitar.jpeg", title: "Yamaha Acoustic Guitar", location: "Mumbai", price: 8000 },
+                { img: "images/thinkpad.webp", title: "Lenovo ThinkPad X1", location: "Bangalore", price: 90000 },
+                { img: "images/books.jpeg", title: "Used Bundle of Books", location: "Pune", price: 1200 },
+                { img: "images/keyboard.webp", title: "Redragon K552 Keyboard", location: "Hyderabad", price: 2200 },
+                { img: "images/iphone_xr.jpg", title: "iPhone XR", location: "Chennai", price: 28000 },
+                { img: "images/honda_crf.jpg", title: "20004 Honda CRF", location: "Kolkata", price: 85000 },
+                { img: "images/sneakers.webp", title: "Nike Sneakers", location: "Ahmedabad", price: 4500 },
+                { img: "images/4wheeler.jpeg", title: "Razor 4 Wheelers", location: "Lucknow", price: 7000 },
+                { img: "images/iphone.jpg", title: "iPhone", location: "Jaipur", price: 30000 },
+                { img: "images/macbook.jpg", title: "MacBook Pro 2017", location: "Delhi", price: 55000 },
+                { img: "images/refrigerator.jpg", title: "Whirlpool Refrigerator", location: "Mumbai", price: 20000 },
+                { img: "images/fortuner.jpg", title: "Toyota Fortuner 4x4", location: "Chandigarh", price: 3200000 },
+                { img: "images/activa.jpg", title: "Honda Activa", location: "Bhopal", price: 65000 },
+                { img: "images/ps4_games.jpg", title: "PS4 Games Bundle", location: "Surat", price: 3500 },
+                { img: "images/sewing_machine.jpg", title: "Sewing Machine", location: "Indore", price: 8000 },
+                { img: "images/nerf.jpg", title: "Nerf Guns & Toys", location: "Patna", price: 4000 },
+                { img: "images/hotwheels.jpg", title: "Hotwheels CSS Collection", location: "Nagpur", price: 2500 },
+                { img: "images/drumkit.jpg", title: "Havana Acoustic Drum Kit", location: "Goa", price: 20000 },
+                { img: "images/organ.jpg", title: "Yamaha PSR Organ", location: "Coimbatore", price: 30000 },
+                { img: "images/study_table.jpg", title: "Study Table", location: "Noida", price: 7000 }
+            ];
+
+            // Shuffle function
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            function renderItems() {
+                const container = document.getElementById("marketplace");
+                container.innerHTML = "";
+
+                let products = [...items];
+                shuffleArray(products);
+
+                products.forEach(item => {
+                    // Price variation ±20%
+                    let variation = (Math.random() * 0.4 - 0.2) * item.price;
+                    let adjustedPrice = Math.max(0, Math.round(item.price + variation));
+
+                    // Format as INR
+                    let priceText = adjustedPrice === 0
+                        ? "FREE"
+                        : "₹" + adjustedPrice.toLocaleString("en-IN");
+
+                    let card = document.createElement("div");
+                    card.className = "card";
+                    card.innerHTML = `
+          <img src="${item.img}" alt="${item.title}">
+          <div class="info">
+            <div class="price">${priceText}</div>
+            <div class="title">${item.title}</div>
+            <div class="location">${item.location}</div>
+          </div>
+        `;
+                    container.appendChild(card);
+                });
+            }
+
+            // Run on first load
+            renderItems();
+        </script>
     </div>
 
 </body>
