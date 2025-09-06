@@ -63,7 +63,6 @@
 
 .aside--search-box {
   /* design properties */
-  background-color: rgb(163, 135, 135);
   height: 8em;
   /* display properties */
   display: flex;
@@ -71,9 +70,27 @@
   gap: 20px;
 }
 
+.search-box--header {
+    /* design properties */
+    font-size: 1.5rem;
+    /* box-model property */
+    margin: auto;
+}
+
+.search-box--search-bar {
+    /* design properties */
+    
+    /* box-model property */
+    margin: auto;
+}
+
+.search-box--acnt {
+    /* box-model properties*/
+    margin: auto;
+}
+
 .aside--location {
   /* design properties */
-  background-color: rgb(193, 214, 214);
   height: 2em;
   /* display properties */
   display: flex;
@@ -83,7 +100,7 @@
 
 .aside--category-list {
   /* design properties */
-  background-color: rgb(96, 198, 133);
+  border: 2px solid black;
 }
 
 .aside--category-list > ul {
