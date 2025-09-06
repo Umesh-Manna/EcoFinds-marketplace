@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace Grid</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .shuffle-btn {
+      display: block;
+      margin: 0 auto 20px auto;
+      padding: 10px 20px;
+      background: #1877f2;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .shuffle-btn:hover {
+      background: #145db2;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns */
+      grid-template-rows: repeat(7, auto);  /* 7 rows */
+      gap: 16px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .info {
+      padding: 10px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      color: #1877f2;
+    }
+
+    .title {
+      font-size: 15px;
+      margin: 5px 0;
+    }
+
+    .location {
+      font-size: 13px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>Today's Picks</h2>
+  <button class="shuffle-btn" onclick="renderItems()">🔄 Shuffle Picks</button>
+  <div class="grid" id="marketplace"></div>
+
+  <script>
+    // Sample product data
+    const items = [
+      { img: "https://via.placeholder.com/220x160/ff4444/fff?text=Honda+CRF", title: "2004 Honda CRF", location: "Oakland, CA", price: 850 },
+      { img: "https://via.placeholder.com/220x160/44aa44/fff?text=4-Wheeler", title: "Razor 4-Wheeler", location: "Menlo Park, CA", price: 100 },
+      { img: "https://via.placeholder.com/220x160/4444ff/fff?text=Diapers", title: "Diapers Size 5 & 6", location: "Sunnyvale, CA", price: 0 },
+      { img: "https://via.placeholder.com/220x160/f0a500/fff?text=Books", title: "Used Books Bundle", location: "San Jose, CA", price: 50 },
+      { img: "https://via.placeholder.com/220x160/aa44aa/fff?text=Chair", title: "Wooden Chair", location: "Palo Alto, CA", price: 40 },
+      { img: "https://via.placeholder.com/220x160/00bcd4/fff?text=Laptop", title: "Refurbished Laptop", location: "Fremont, CA", price: 400 },
+      { img: "https://via.placeholder.com/220x160/8bc34a/fff?text=Shoes", title: "Nike Sneakers", location: "Mountain View, CA", price: 70 },
+      { img: "https://via.placeholder.com/220x160/e91e63/fff?text=Phone", title: "iPhone XR", location: "Santa Clara, CA", price: 250 },
+      { img: "https://via.placeholder.com/220x160/3f51b5/fff?text=Guitar", title: "Acoustic Guitar", location: "San Mateo, CA", price: 120 },
+      { img: "https://via.placeholder.com/220x160/795548/fff?text=Table", title: "Dining Table", location: "Los Altos, CA", price: 150 }
+    ];
+
+    // Shuffle function
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    function renderItems() {
+      const container = document.getElementById("marketplace");
+      container.innerHTML = "";
+
+      let products = [...items];
+      shuffleArray(products);
+
+      // Generate 21 cards (7 rows × 3 columns)
+      for (let i = 0; i < 21; i++) {
+        let item = products[i % products.length];
+
+        // Price variation ±20%
+        let variation = (Math.random() * 0.4 - 0.2) * item.price;
+        let adjustedPrice = Math.max(0, Math.round(item.price + variation));
+
+        let card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${item.img}" alt="${item.title}">
+          <div class="info">
+            <div class="price">${adjustedPrice === 0 ? "FREE" : "$" + adjustedPrice}</div>
+            <div class="title">${item.title}</div>
+            <div class="location">${item.location}</div>
+          </div>
+        `;
+        container.appendChild(card);
+      }
+    }
+
+    // Run on first load
+    renderItems();
+  </script>
+</body>
+</html>

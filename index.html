@@ -1,40 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcoFinds</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="webpage">
         <header class="header">
             <div class="header--logo">
-            {logo}
+                {logo}
             </div>
 
             <div class="header--reg-log">
                 <button>Sign in</button>
-                
+
                 <button>Log in</button>
-                
+
                 <button>Forgot account?</button>
             </div>
         </header>
 
-        <aside class="aside">
-            <div class="aside--search-bar"></div>
-            <div class="aside--category-list"></div>
-        </aside>
+        <section class="content">
 
-        <main class="main">
-            <div class="main--header">
-                <h1>Today's picks</h1>
-            </div>
+            <aside class="aside">
+                <div class="aside--search-box">
+                    <div class="search-box--header">
+                        <h1>Marketplace</h1>
+                    </div>
+                    <div class="search-box--search-bar">
+                        <input type="text" id="search-bar" placeholder="Search items or categories">
+                    </div>
+                    <div>
+                        <a href="">Your account</a>
+                    </div>
+                </div>
 
-            <div class="main-cards"></div>
-        </main>
+                <div class="aside--location">
+                    <a href="">India</a>
+                </div>
+
+                <div class="aside--category-list">
+                    <ul>
+                        <li><a href="">Vehicles</a></li>
+                        <li><a href="">Property for rent</a></li>
+                        <li><a href="">Classifieds</a></li>
+                        <li><a href="">Clothing</a></li>
+                        <li><a href="">Electronics</a></li>
+                        <li><a href="">Entertainment</a></li>
+                        <li><a href="">Family</a></li>
+                        <li><a href="">Free stuff</a></li>
+                        <li><a href="">Garden and outdoor</a></li>
+                        <li><a href="">Hobbies</a></li>
+                        <li><a href="">Home goods</a></li>
+                        <li><a href="">Home improvement supplies</a></li>
+                        <li><a href="">Musical instruments</a></li>
+                        <li><a href="">Office supplies</a></li>
+                        <li><a href="">Pet supplies</a></li>
+                        <li><a href="">Property for sale</a></li>
+                        <li><a href="">Sporting goods</a></li>
+                        <li><a href="">Toys and games</a></li>
+                        <li><a href="more categories"></a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <main class="main">
+                <div class="main--header">
+                    <h1>Today's picks</h1>
+                </div>
+
+                <div class="main-cards"></div>
+            </main>
+        </section>
     </div>
-    
+
 </body>
+
 </html>
