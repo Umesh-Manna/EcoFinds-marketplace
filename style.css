@@ -1,0 +1,22 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    /* designing properties */
+    border: 2px solid black;
+    /* display properties */
+    display: flex;
+    justify-content: space-between;
+}
+
+.header--reg-log {
+    /* design properties */
+
+    /* display properties */
+    display: flex;
+    flex: 0 1 250px;
+    justify-content: space-between;
+}
+
