@@ -1,7 +1,7 @@
 // 21 items with Indian Rupee base prices
 const items = [
   {
-    img: "https://via.placeholder.com/220x160/795548/fff?text=Dining+Table",
+    img: "assets\images\dinning-table.jpeg",
     title: "Dining Table",
     location: "Delhi",
     price: 15000,
