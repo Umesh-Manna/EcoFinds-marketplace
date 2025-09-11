@@ -75,7 +75,29 @@
                 </div>
 
                 <div class="grid" id="marketplace">
+                </div>
 
+                <h2>Marketplace Item</h2>
+                <img src="https://via.placeholder.com/600" class="item-img" alt="Item">
+
+                <!-- Fullscreen Overlay -->
+                <div class="overlay" id="overlay">
+                    <span class="close-btn" id="closeBtn">&times;</span>
+                    <div class="overlay-content">
+                        <!-- Left: Image -->
+                        <div class="overlay-left">
+                            <img src="" id="overlayImg" alt="Fullscreen Item">
+                        </div>
+                        <!-- Right: Item Details -->
+                        <div class="overlay-right">
+                            <h2 id="itemTitle">Sample Item Title</h2>
+                            <h3 id="itemPrice">$120</h3>
+                            <p><strong>Location:</strong> New York, USA</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Donec euismod, nisi vel consectetur blandit, risus magna commodo mi,
+                                eget tincidunt sapien augue a justo.</p>
+                        </div>
+                    </div>
                 </div>
             </main>
         </section>
@@ -147,17 +169,17 @@
             }
 
             // Run on first load
-            renderItems();
+            renderItems();;
 
             // adding new properties from here onwards
 
-            const itemImg = document.querySelector(".item-img");
+            const itemImg = document.querySelector(".card");
             const overlay = document.getElementById("overlay");
             const overlayImg = document.getElementById("overlayImg");
             const closeBtn = document.getElementById("closeBtn");
 
             // Show overlay when clicking item
-            itemImg.addEventListener("click", () => {
+            itemImg.addEventListener("click", () => {  //till here: acceptable
                 overlay.style.display = "block";
                 overlayImg.src = itemImg.src;
             });
